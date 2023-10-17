@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Astronomia do Dia</title>
+</head>
+<body class="background-image">
+
+<div class="content">
+    <div class="image">
+        <img src="{{ image_url }}" alt="Imagem Astronômica do Dia" >
+    </div>
+    <div class="explanation">
+        <h1>Astronomy Picture of the Day</h1>
+        <p>{{ explanation }}</p>
+        <p>Date: {{ date }}</p>
+        <p class="backForward">
+            {% if previous_date %}
+            <a href="{{ url_for('astronomy_picture_by_date', date=previous_date) }}">
+                <span class="material-symbols-rounded arrow">arrow_back_ios</span>
+            </a>
+            {% endif %}
+            {% if next_date %}
+            <a href="{{ url_for('astronomy_picture_by_date', date=next_date) }}">
+                <span class="material-symbols-rounded arrow">arrow_forward_ios</span>
+            </a>
+        {% endif %}
+        </p>
+    </div>
+</div>
+</body>
+</html>
